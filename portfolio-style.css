@@ -1,0 +1,534 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/*GENERAL STYLING*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+    font-family: "Mulish", Arial, Helvetica, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h2, h3, h4 {
+    font-family: "Archivo Black", Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 1.7rem;
+}
+
+p {
+    font-size: 1.3rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+.innerContent {
+    max-width: 1000px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/*HEADER STYLING*/
+header {
+    z-index: 1000;
+    position: relative;
+}
+
+header nav {
+    width: 80%;
+    background-color: #c3002f;
+
+    position: fixed;
+    top: 0;
+
+    border-radius: 0 0 25px 25px;
+
+    transition: all .3s;
+}
+
+header nav.hidden {
+    transform: translateY(-100%);
+}
+header nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+
+    padding: 0.5rem;
+}
+
+header nav ul li {
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    text-transform: uppercase;
+    font-family: "Archivo Black", Arial, Helvetica, sans-serif;
+
+    color:white;
+}
+
+
+/*HERO STYLING*/
+
+#hero {
+    min-height: 80vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)), url('images/space-bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    color:white;
+}
+
+#hero .innerContent {
+    justify-content: center;
+    height: 80vh;
+}
+
+#headerBlock {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+
+    background-color: white;
+
+    padding: 0.5rem 1.5rem;
+    margin: 2rem 1rem;
+    border-radius: 75px;
+}
+
+#headerLogo {
+    width: 15%;
+    height: 100%;
+}
+
+#hero h1 {
+    font-size: 6rem;
+    font-weight: 400;
+    color: black;
+}
+
+.scrollTriangle {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 20px solid white;
+
+    background-color: transparent;
+    border-top-color: transparent;
+
+    z-index: 1;
+}
+
+.scrollTriangle::before {
+    content: "";
+    position: absolute;
+    left: -15px;
+    top: -200px;
+    width: 0;
+    height: 0;
+    border-left: 17px solid transparent;
+    border-right: 17px solid transparent;
+    border-top: 22px solid white;
+
+    z-index: 1;
+}
+
+.scrollTriangle:hover {
+    cursor: pointer;
+}
+
+
+/*ABOUT STYLING*/
+#about .innerContent{
+    flex-direction: row;
+    align-items: center;
+
+    padding: 5rem 0;
+}
+
+#about .innerContent img {
+    width:30%;
+    height: 100%;
+    border-radius: 25px;
+}
+
+#about .innerContent div {
+    width: 60%;
+
+    margin-left: 4rem;
+}
+
+#about .innerContent p {
+    margin-top: 1rem;
+}
+
+#mission {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/space-bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#mission .innerContent {
+    padding: 5rem;
+}
+
+#mission {
+    color: white;
+}
+
+#mission p {
+    margin: 1rem 0;
+}
+
+#mission #verseText {
+    font-style: italic;
+}
+
+
+/*PROJECTS STYLING*/
+#projects {
+    background-color: #282627;
+    color:white;
+}
+
+#projects .innerContent {
+    padding: 5rem 0 1rem 0;
+}
+
+#projects #headingSection{
+    display: flex;
+}
+
+#projects #headingSection h2 {
+    width: 45%;
+    margin-right: 2rem;
+}
+
+#projects #headingSection p {
+    width: 55%;
+}
+
+#projectTiles {
+    padding: 4rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap:2rem;
+}
+
+.projectTile {
+    height: 300px;
+    flex: 1 1 calc(50% - 2rem);
+    position: relative;
+    width: calc(50%-1rem);
+}
+
+.tileInner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    
+}
+
+.projectTile:hover .tileInner {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    top: 0;
+    left: 0;
+    
+    border-radius: 25px;
+}
+
+
+.back {
+    background: white;
+    color: black;
+    transform: rotateY(180deg);
+    padding: 20px;
+    box-sizing: border-box;
+    
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.back h4 {
+    font-size: 1.8rem;
+}
+
+.back p {
+    margin: 1rem;
+}
+
+.back a {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #c3002f;
+    transition: all .3s;
+}
+
+.back a:hover {
+    color: #5a5a5a;
+}
+
+/*INDIVIDUAL TILE IMAGES*/
+#projectTile1 .front {
+    background-image: url(images/cart-project.png);
+    background-size: cover;
+    background-position: center;
+}
+
+#projectTile2 .front {
+    background-image: url(images/calc-project.png);
+    background-size: cover;
+    background-position: center;
+}
+
+#projectTile3 .front {
+    background-image: url(images/creepy-quiz-project.png);
+    background-size: cover;
+    background-position: center;
+}
+
+#projectTile4 .front {
+    background-image: url(images/grocery-list-project.png);
+    background-size: cover;
+    background-position: center;
+}
+
+#projectTile5 .front {
+    background-image: url(images/mustache-site-project.png);
+    background-size: cover;
+    background-position: center;
+}
+
+#projectTile6 .front {
+    background-image: url(images/rock-paper-scissor-project.png);
+    background-size: cover;
+    background-position: center;
+}
+
+#projectTile7 .front {
+    background-image: url(images/site-project-omnifood.png);
+    background-size: cover;
+    background-position: center;
+}
+
+#projectTile8 .front {
+    background-image: url(images/tic-tac-toe-project.png);
+    background-size: cover;
+    background-position: center;
+}
+
+
+/*WORK EXPERIENCE STYLING*/
+#workExperience {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/space-bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    color:white;
+
+}
+
+#workExperience .innerContent {
+    padding: 5rem 0 3rem 0;
+}
+
+#workExperience hr {
+    width: 20%;
+    background-color: white;
+    height: 2px;
+}
+
+.experienceTile {
+    text-align: center;
+    max-width: 600px;
+
+    margin: 2rem 0;
+}
+
+.experienceTile .companyText {
+    font-weight: bold;
+}
+
+.experienceTile .dateText {
+    font-style: italic;
+}
+
+
+/*EDUCATION STYLING*/
+#education {
+    background-color: white;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    color:black;
+
+}
+
+#education .innerContent {
+    padding: 5rem 0 3rem 0;
+}
+
+#education hr {
+    background-color: black;
+    width: 20%;
+    height: 2px;
+    border:none;
+}
+
+.educationTile {
+    text-align: center;
+    max-width: 600px;
+
+    margin: 2rem 0;
+}
+
+.educationTile .companyText {
+    font-weight: bold;
+}
+
+.educationTile .dateText {
+    font-style: italic;
+}
+
+
+
+/*FOOTER STYLING*/
+footer {
+    padding: 1rem;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: black;
+    color:white;
+}
+
+footer a {
+    margin: 1rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #c3002f;
+    transition: all .3s;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
+/*RESPONSIVE STYLING*/
+@media screen and (max-width: 900px) {
+    #headerBlock {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #headerBlock h1{
+        font-size: 4rem;
+    }
+
+    #headerLogo {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    header nav ul {
+        flex-wrap: wrap;
+    }
+
+    header nav ul li {
+        margin: 0;
+    }
+
+    #hero h3 {
+        text-align: center;
+    }
+
+    #about .innerContent,
+    #workExperience .innerContent,
+    #projects .innerContent,
+    #mission .innerContent,
+    #education .innerContent{
+        padding: 3rem 1rem;
+    }
+
+    #about .innerContent {
+        flex-direction: column;
+    }
+
+    #about .innerContent img {
+        width: 80%;
+    }
+
+    #about .innerContent div {
+        margin: 0;
+        width: 90%;
+    }
+
+    #mission .innerContent * {
+        text-align: center;
+    }
+
+    #projects .innerContent #headingSection{
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    #projects .innerContent #headingSection *{
+        width: 100%;
+        text-align: center;
+    }
+
+    #projects #projectTiles .projectTile{
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    #workExperience .innerContent h2 {
+        text-align: center;
+    }
+}
